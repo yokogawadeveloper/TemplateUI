@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit, Input } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { SidebarService } from '../sidebar.service';
 
 interface MenuItem {
   icon: string;
@@ -15,13 +15,19 @@ interface MenuItem {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  @Input() isOpen = false;
+  isOpen = false;
   isCollapsed: boolean = false;
 
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {
+    this.sidebarService.sidebarOpen$.subscribe((isOpen) => {
+      this.isOpen = isOpen;
+    });
+  }
 
   toggleSidebar() {
-    this.isOpen = !this.isOpen;
+    this.sidebarService.toggleSidebar();
+    this.isCollapsed = !this.isCollapsed;
+    
   }
 
   ngOnInit(): void {}

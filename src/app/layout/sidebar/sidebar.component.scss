@@ -1,87 +1,44 @@
+
 .sidebar {
   position: fixed;
-  left: 0;
+  left: -250px; /* Hidden by default */
   top: 0;
-  width: 280px;
+  width: 250px;
   height: 100%;
-  background: #18273e; /* Dark blue background */
+  background: #333;
   color: #fff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
   z-index: 1000;
 
   &.open {
-    transform: translateX(0);
-  }
-
-  &.collapsed {
-    width: 80px;
+    left: 0; /* Slide into view */
   }
 }
 
 .sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  background: #0f1c2b; /* Darker header background */
-  border-bottom: 1px solid #2c3e50;
+  padding: 16px;
+  font-size: 24px;
+}
 
-  .logo {
-    max-width: 100px;
-    height: auto;
+.sidebar-nav .nav-item {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #444;
   }
 
-  .close-btn {
-    font-size: 20px;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+  svg {
+    margin-right: 10px;
   }
 }
 
-.sidebar-content {
-  padding: 20px;
-
-  .menu-section {
-    margin-bottom: 20px;
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 15px;
-      margin-bottom: 5px;
-      color: #b0c5db; /* Light blue text */
-      text-decoration: none;
-      cursor: pointer;
-      border-radius: 5px;
-
-      &:hover {
-        background: #24344d; /* Hover state */
-      }
-
-      .arrow {
-        margin-left: auto;
-      }
-    }
-
-    .submenu {
-      margin-left: 20px;
-
-      a {
-        display: block;
-        padding: 8px 15px;
-        color: #b0c5db;
-        text-decoration: none;
-
-        &:hover {
-          color: #fff;
-          background: #24344d;
-          border-radius: 5px;
-        }
-      }
-    }
-  }
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

@@ -10,5 +10,6 @@ export class SidebarService {
 
   toggleSidebar() {
     this.sidebarOpen.next(!this.sidebarOpen.value);
+    console.log(this.sidebarOpen.value);
   }
 }

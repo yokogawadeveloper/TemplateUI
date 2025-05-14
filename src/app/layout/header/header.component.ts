@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { SidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  isSidebarOpen = false;
-  @Output() toggle = new EventEmitter<void>();
+  constructor(private sideService: SidebarService) {}
 
   toggleSidebar() {
-    this.toggle.emit();
-    this.isSidebarOpen = !this.isSidebarOpen;
-    console.log('Sidebar toggled:', this.isSidebarOpen);
+    this.sideService.toggleSidebar();
   }
 }

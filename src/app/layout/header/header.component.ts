@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
 
 @Component({
@@ -11,5 +11,13 @@ export class HeaderComponent {
 
   toggleSidebar() {
     this.sideService.toggleSidebar();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.popup-menu') && !target.closest('.profile-img')) {
+      // this.closeMenu();
+    }
   }
 }

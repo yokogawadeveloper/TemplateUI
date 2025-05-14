@@ -7,11 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'templateUI';
-
-  isSidebarOpen = false;
-  @Input() isOpen = false;
-
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
 }

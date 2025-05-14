@@ -1,0 +1,4 @@
+Angular CLI: 16.0.4
+Node: 16.20.0
+Package Manager: npm 8.19.4
+OS: win32 x64

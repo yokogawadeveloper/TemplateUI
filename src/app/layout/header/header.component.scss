@@ -93,3 +93,42 @@
   object-fit: cover;
 }
 
+.popup-menu {
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  right: 1rem;
+  background-color: #fff;
+  color: #2c3e50;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px;
+  z-index: 1000;
+}
+
+.popup-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-menu li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.popup-menu li i {
+  margin-right: 0.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+
+}
+
+.popup-menu li:hover {
+  background-color: #f1f5f9;
+  border-radius: 4px;
+}

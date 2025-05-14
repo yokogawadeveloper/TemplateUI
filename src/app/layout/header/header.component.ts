@@ -7,17 +7,27 @@ import { SidebarService } from '../sidebar.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private sideService: SidebarService) {}
+  isMenuVisible = false;
+
+  constructor(private sideService: SidebarService) { }
 
   toggleSidebar() {
     this.sideService.toggleSidebar();
   }
 
+  toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
+
+  closeMenu() {
+    this.isMenuVisible = false;
+  }
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
     const target = event.target as HTMLElement;
-    if (!target.closest('.popup-menu') && !target.closest('.profile-img')) {
-      // this.closeMenu();
+    if (!target.closest('.popup-menu') && !target.closest('.user-avatar')) {
+      this.closeMenu();
     }
   }
 }
